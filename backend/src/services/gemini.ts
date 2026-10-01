@@ -12,8 +12,13 @@ const EMBEDDING_MODEL = 'gemini-embedding-001';
 const EMBEDDING_DIMENSION = 768;
 
 // Models for Flash LLM reasoning
-const PRIMARY_FLASH_MODEL = 'gemini-flash-latest';
-const FALLBACK_FLASH_MODELS = ['gemini-3.5-flash', 'gemini-3.8-flash'];
+const FLASH_MODELS = [
+  'gemini-flash-lite-latest',
+  'gemini-3.5-flash-lite',
+  'gemini-flash-latest',
+  'gemini-3.1-flash-lite',
+  'gemini-3.8-flash',
+];
 
 /**
  * Generate 768-dimensional vector embedding for text using Gemini.
@@ -23,13 +28,15 @@ export async function generateEmbedding(text: string): Promise<number[]> {
   const model = genAI.getGenerativeModel({ model: EMBEDDING_MODEL });
 
   // Explicitly configure 768 dimensions to match the Pinecone index dimension
-  const result = await model.embedContent({
+  const request: any = {
     content: {
       role: 'user',
       parts: [{ text: text.trim() }],
     },
     outputDimensionality: EMBEDDING_DIMENSION,
-  });
+  };
+
+  const result = await model.embedContent(request);
 
   const embedding = result.embedding?.values;
   if (!embedding || embedding.length !== EMBEDDING_DIMENSION) {
@@ -82,10 +89,9 @@ Return strict JSON as an array of objects with "id" and "reason" fields:
   { "id": "job-id", "reason": "One sentence explaining the match." }
 ]`;
 
-  const modelsToTry = [PRIMARY_FLASH_MODEL, ...FALLBACK_FLASH_MODELS];
   let lastError: Error | null = null;
 
-  for (const modelName of modelsToTry) {
+  for (const modelName of FLASH_MODELS) {
     try {
       const model = genAI.getGenerativeModel({
         model: modelName,
@@ -106,6 +112,7 @@ Return strict JSON as an array of objects with "id" and "reason" fields:
         }
       }
 
+      console.log(`[Gemini Reason Generation] Successfully generated reasons using ${modelName}`);
       return reasonMap;
     } catch (err: any) {
       console.warn(`Model ${modelName} reasoning attempt failed: ${err.message}`);
