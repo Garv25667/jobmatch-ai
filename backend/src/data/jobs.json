@@ -1,0 +1,352 @@
+[
+  {
+    "id": "job-1",
+    "title": "Senior Frontend Engineer",
+    "company": "Voxel Cloud",
+    "location": "San Francisco, CA (Hybrid)",
+    "description": "We are seeking a Senior Frontend Engineer proficient in React, Next.js, and TypeScript. You will architect high-performance client applications, build reusable design system components with Tailwind CSS, and collaborate closely with product designers to deliver polished, responsive web experiences."
+  },
+  {
+    "id": "job-2",
+    "title": "Frontend React Developer",
+    "company": "PulseHealth",
+    "location": "Remote (US)",
+    "description": "Looking for a Frontend Developer with 3+ years of experience in React, Redux Toolkit, and modern CSS. You will develop interactive clinical dashboards, optimize Core Web Vitals, and integrate RESTful and GraphQL APIs for healthcare practitioners."
+  },
+  {
+    "id": "job-3",
+    "title": "Staff UI/UX Engineer",
+    "company": "FinStream",
+    "location": "New York, NY",
+    "description": "Lead the frontend architecture for our real-time financial trading platform. Requires deep expertise in TypeScript, WebSockets, Canvas/WebGL data visualizations, micro-frontends, and web accessibility (WCAG 2.1 AA compliance)."
+  },
+  {
+    "id": "job-4",
+    "title": "Mobile Frontend Engineer (React Native)",
+    "company": "RoverGo",
+    "location": "Austin, TX (Hybrid)",
+    "description": "Develop cross-platform iOS and Android applications using React Native, Expo, and TypeScript. You will build offline-first mobile sync features, native bridge modules, and smooth 60fps gesture-driven animations."
+  },
+  {
+    "id": "job-5",
+    "title": "Frontend Design System Engineer",
+    "company": "CanvasHQ",
+    "location": "Remote",
+    "description": "Build and maintain our enterprise design system in React, TypeScript, and Storybook. Experience with headless UI primitives (Radix UI), token management (Style Dictionary), semantic versioning, and automated visual regression testing is required."
+  },
+  {
+    "id": "job-6",
+    "title": "Vue.js / Nuxt Full-Stack Frontend Developer",
+    "company": "BrightCart",
+    "location": "Chicago, IL (Hybrid)",
+    "description": "Join our e-commerce platform team building server-side rendered storefronts with Vue 3, Nuxt 3, Pinia, and Tailwind CSS. Focus on search engine optimization (SEO), sub-second page loads, and internationalization (i18n)."
+  },
+  {
+    "id": "job-7",
+    "title": "Lead Frontend Architect",
+    "company": "NovaScale",
+    "location": "Seattle, WA",
+    "description": "Drive technical direction for a suite of enterprise SaaS web applications. Extensive experience with monorepos (Turborepo/Nx), Vite, Module Federation, performance profiling with Chrome DevTools, and mentoring senior engineering staff."
+  },
+  {
+    "id": "job-8",
+    "title": "Junior Frontend Web Developer",
+    "company": "ApprenticeHub",
+    "location": "Denver, CO (Hybrid)",
+    "description": "Ideal for developers with 1-2 years building web interfaces with HTML5, CSS3, modern JavaScript (ES6+), and React. You will build user-facing features, fix UI bugs, and write unit tests using Vitest and React Testing Library."
+  },
+  {
+    "id": "job-9",
+    "title": "Senior Backend Node.js Engineer",
+    "company": "HyperGrid",
+    "location": "Remote (US)",
+    "description": "Architect scalable distributed backend microservices using Node.js, Express, TypeScript, and PostgreSQL. You will design event-driven architectures with Apache Kafka, implement caching with Redis, and maintain 99.99% API uptime."
+  },
+  {
+    "id": "job-10",
+    "title": "Backend Go / Golang Systems Engineer",
+    "company": "Apex Networks",
+    "location": "San Francisco, CA",
+    "description": "Build high-throughput, low-latency networking services in Go (Golang). Requires experience with gRPC, Protocol Buffers, concurrency patterns (goroutines, channels), and distributed consensus systems."
+  },
+  {
+    "id": "job-11",
+    "title": "Python Backend API Engineer",
+    "company": "Zenith Analytics",
+    "location": "Boston, MA (Hybrid)",
+    "description": "Develop secure asynchronous REST and GraphQL APIs using Python, FastAPI, SQLAlchemy, and PostgreSQL. Responsible for background job processing with Celery/RabbitMQ, authentication (OAuth2/JWT), and Docker containerization."
+  },
+  {
+    "id": "job-12",
+    "title": "Staff Java / Spring Boot Engineer",
+    "company": "Keystone Financial",
+    "location": "Charlotte, NC (Hybrid)",
+    "description": "Design mission-critical core banking transaction engines using Java 21, Spring Boot, Hibernate, and Oracle/PostgreSQL databases. Strong background in ACID transactions, distributed locking, domain-driven design (DDD), and resilience engineering."
+  },
+  {
+    "id": "job-13",
+    "title": "Rust Backend Systems Developer",
+    "company": "ZeroLeak Security",
+    "location": "Remote",
+    "description": "Build memory-safe, ultra-high performance server engines using Rust (Tokio, Actix-web). Strong knowledge of async Rust, zero-cost abstractions, network protocols (TCP/UDP/QUIC), and system security auditing."
+  },
+  {
+    "id": "job-14",
+    "title": "Backend Distributed Systems Engineer",
+    "company": "OmniStore DB",
+    "location": "Seattle, WA (Hybrid)",
+    "description": "Architect distributed key-value storage nodes handling petabyte-scale datasets. Expertise in C++ or Go, Raft/Paxos consensus algorithms, LSM trees, and replication topologies under network partition scenarios."
+  },
+  {
+    "id": "job-15",
+    "title": "Senior Cloud API Engineer (TypeScript/Serverless)",
+    "company": "ServerlessWorks",
+    "location": "Remote",
+    "description": "Build serverless backend architectures using Node.js, TypeScript, AWS Lambda, API Gateway, DynamoDB, and EventBridge. Experience with Infrastructure as Code (AWS CDK or Terraform) and CI/CD pipelines."
+  },
+  {
+    "id": "job-16",
+    "title": "Junior Backend Developer",
+    "company": "CodeNest",
+    "location": "Atlanta, GA",
+    "description": "Join our backend team writing CRUD services in Node.js and Express. You will write SQL queries, implement input validation schemas (Zod/Joi), write automated integration tests with Jest, and document endpoints using OpenAPI/Swagger."
+  },
+  {
+    "id": "job-17",
+    "title": "Senior Data Engineer",
+    "company": "StreamData Labs",
+    "location": "San Francisco, CA (Hybrid)",
+    "description": "Design and manage large-scale batch and streaming data pipelines using Apache Spark, Kafka, and Python/PySpark. Experience modeling data in Snowflake and Databricks Lakehouse, orchestrating workflows with Airflow or Dagster."
+  },
+  {
+    "id": "job-18",
+    "title": "Analytics Engineer (dbt / Snowflake)",
+    "company": "MetricWise",
+    "location": "Remote (US)",
+    "description": "Bridge data engineering and business analytics by developing modular, tested, and documented SQL transformation models using dbt and Snowflake. Implement automated data quality checks and maintain dimensional data marts."
+  },
+  {
+    "id": "job-19",
+    "title": "Lead Big Data Platform Engineer",
+    "company": "Terabyte Systems",
+    "location": "New York, NY",
+    "description": "Manage distributed data clusters running Apache Spark, Hadoop, Presto/Trino, and Iceberg. Optimize query execution plans, partition schemas, and cloud object storage cost across multi-region AWS environments."
+  },
+  {
+    "id": "job-20",
+    "title": "Business Intelligence & Data Analyst",
+    "company": "ClearMetrics",
+    "location": "Austin, TX",
+    "description": "Translate complex multi-source business data into actionable executive insights. Proficient in advanced SQL, Tableau, Power BI, cohort retention analysis, and communicating metric trends to cross-functional leadership."
+  },
+  {
+    "id": "job-21",
+    "title": "Real-time Streaming Data Engineer",
+    "company": "AdPulse Global",
+    "location": "Remote",
+    "description": "Build low-latency streaming pipelines processing 500k+ events/sec using Apache Flink, Kafka, and ClickHouse. Experience with event time semantics, watermarks, exactly-once state management, and RocksDB state backends."
+  },
+  {
+    "id": "job-22",
+    "title": "Data Warehouse Architect",
+    "company": "Horizon Health",
+    "location": "Raleigh, NC (Hybrid)",
+    "description": "Architect enterprise healthcare data warehouses complying with HIPAA standards. Expertise in Google BigQuery, Google Cloud Dataflow, Star/Snowflake schemas, data lineage tracking, and master data management."
+  },
+  {
+    "id": "job-23",
+    "title": "Junior Data Engineer",
+    "company": "Nexus Media",
+    "location": "Chicago, IL",
+    "description": "Assist in building automated ETL/ELT pipelines using Python, pandas, SQL, and AWS S3/Redshift. Write unit tests for data transforms, monitor pipeline alerts, and maintain clean database schemas."
+  },
+  {
+    "id": "job-24",
+    "title": "Senior Machine Learning Engineer",
+    "company": "Cognitive AI",
+    "location": "San Francisco, CA",
+    "description": "Design, train, and deploy production machine learning models using PyTorch, Scikit-Learn, and Python. Experience serving models at scale with Triton Inference Server or TorchServe, featuring low-latency inference and real-time feature stores (Feast)."
+  },
+  {
+    "id": "job-25",
+    "title": "LLM Applications Engineer (GenAI / RAG)",
+    "company": "VectorMind",
+    "location": "Remote (US)",
+    "description": "Build cutting-edge generative AI applications using Large Language Models, LangChain/LlamaIndex, and vector databases (Pinecone, Weaviate). Implement semantic search, RAG pipelines, prompt engineering, embedding fine-tuning, and LLM evaluation benchmarks."
+  },
+  {
+    "id": "job-26",
+    "title": "Computer Vision Research Engineer",
+    "company": "VisionRobotics",
+    "location": "Pittsburgh, PA",
+    "description": "Develop deep learning algorithms for 3D object detection, semantic segmentation, and sensor fusion in autonomous mobile robots. Proficient in PyTorch, OpenCV, CUDA programming, and model quantization (TensorRT, ONNX)."
+  },
+  {
+    "id": "job-27",
+    "title": "NLP / Conversational AI Scientist",
+    "company": "LinguistAI",
+    "location": "Seattle, WA (Hybrid)",
+    "description": "Research and fine-tune transformer models for dialogue management, intent recognition, and entity extraction. Experience with Hugging Face Transformers, PEFT/LoRA adapters, RLHF, and multilingual embedding models."
+  },
+  {
+    "id": "job-28",
+    "title": "MLOps Platform Engineer",
+    "company": "ModelOps Technologies",
+    "location": "Remote",
+    "description": "Build continuous machine learning deployment infrastructure. Expertise in Kubeflow, MLflow, Docker, Kubernetes, automated model retraining triggers, model drift detection, and GPU cluster resource scheduling."
+  },
+  {
+    "id": "job-29",
+    "title": "AI Recommendation Systems Engineer",
+    "company": "StreamFlix Media",
+    "location": "Los Angeles, CA (Hybrid)",
+    "description": "Develop large-scale personalization and recommendation algorithms using collaborative filtering, two-tower neural networks, and approximate nearest neighbor (ANN) vector search. Experience with A/B testing recommendation strategies."
+  },
+  {
+    "id": "job-30",
+    "title": "Staff AI Research Scientist",
+    "company": "DeepHorizon Labs",
+    "location": "San Francisco, CA",
+    "description": "Conduct foundational research in deep learning, diffusion models, and multimodal architectures. Requires a Ph.D. or equivalent research track record with publications in NeurIPS, ICML, or CVPR, and deep proficiency in JAX/PyTorch."
+  },
+  {
+    "id": "job-31",
+    "title": "Senior DevOps Engineer",
+    "company": "CloudForge",
+    "location": "Remote (US)",
+    "description": "Manage multi-account AWS infrastructure using Terraform and Terragrunt. Build automated CI/CD pipelines with GitHub Actions, implement zero-downtime deployment strategies, and enforce infrastructure security policies."
+  },
+  {
+    "id": "job-32",
+    "title": "Site Reliability Engineer (SRE)",
+    "company": "Reliant Global",
+    "location": "New York, NY (Hybrid)",
+    "description": "Maintain reliability, scalability, and performance of distributed SaaS services. Extensive experience with Kubernetes (EKS/GKE), Prometheus, Grafana, OpenTelemetry, incident response management, and SLO/SLI tracking."
+  },
+  {
+    "id": "job-33",
+    "title": "Cloud Platform Engineer (Kubernetes)",
+    "company": "KubeScale Inc",
+    "location": "San Jose, CA",
+    "description": "Build internal developer platforms (IDP) atop Kubernetes, Helm, ArgoCD, and Crossplane. Automate cluster provisioning, service mesh routing (Istio), network policies (Cilium), and developer self-service workflows."
+  },
+  {
+    "id": "job-34",
+    "title": "DevSecOps Security Engineer",
+    "company": "ShieldPoint",
+    "location": "Washington, DC (Hybrid)",
+    "description": "Embed security tooling into automated CI/CD delivery pipelines. Experience with static code analysis (SAST), software composition analysis (SCA/Snyk), container vulnerability scanning (Trivy), and cloud security posture management (CSPM)."
+  },
+  {
+    "id": "job-35",
+    "title": "Lead Cloud Infrastructure Architect",
+    "company": "Enterprise Cloud Solutions",
+    "location": "Dallas, TX",
+    "description": "Design hybrid multi-cloud migration frameworks across AWS and Microsoft Azure. Proficient in cloud landing zones, transit gateways, disaster recovery planning, cloud financial management (FinOps), and enterprise IAM governance."
+  },
+  {
+    "id": "job-36",
+    "title": "Linux Systems & Infrastructure Engineer",
+    "company": "CoreHost Systems",
+    "location": "Remote",
+    "description": "Maintain bare-metal and virtualized Linux (Ubuntu/RHEL) server environments. Proficient in Ansible configuration management, kernel tuning, BASH scripting, systemd service management, and ZFS/Ceph storage arrays."
+  },
+  {
+    "id": "job-37",
+    "title": "Junior DevOps Engineer",
+    "company": "AgileShip",
+    "location": "Minneapolis, MN",
+    "description": "Support cloud deployment operations. Familiarity with Docker containerization, Git branching strategies, basic Terraform scripting, AWS fundamentals (EC2, S3, IAM), and monitoring alerts in Datadog."
+  },
+  {
+    "id": "job-38",
+    "title": "Principal Technical Product Manager",
+    "company": "Synthetix Platform",
+    "location": "San Francisco, CA (Hybrid)",
+    "description": "Define the vision and roadmap for developer API platforms and developer experience tooling. Work closely with staff software engineers, articulate technical trade-offs, write detailed PRDs, and drive API versioning lifecycle strategies."
+  },
+  {
+    "id": "job-39",
+    "title": "Product Manager - AI & Machine Learning",
+    "company": "SmartWork AI",
+    "location": "Remote (US)",
+    "description": "Drive product strategy for enterprise AI workflow automation tools. Experience evaluating generative AI models, defining user experience paradigms for probabilistic AI features, measuring model output quality, and gathering enterprise customer requirements."
+  },
+  {
+    "id": "job-40",
+    "title": "Senior Growth Product Manager",
+    "company": "LoopMedia",
+    "location": "New York, NY",
+    "description": "Lead cross-functional growth squads (engineering, design, analytics) focused on user onboarding, activation funnels, self-serve monetization, and viral referral loops. Proven track record in rapid multivariate experimentation and funnel analytics."
+  },
+  {
+    "id": "job-41",
+    "title": "Product Manager - Cloud Infrastructure & Security",
+    "company": "Fortress Cloud",
+    "location": "Austin, TX (Hybrid)",
+    "description": "Manage enterprise cloud governance, IAM, and compliance products (SOC2, ISO 27001). Requires deep technical understanding of cloud security architectures, zero-trust network principles, and B2B SaaS enterprise sales cycles."
+  },
+  {
+    "id": "job-42",
+    "title": "Product Operations Manager",
+    "company": "Kinetix Software",
+    "location": "Remote",
+    "description": "Optimize product development workflows between product management, customer success, sales, and engineering. Manage beta testing programs, user interview logistics, product analytics instrumentation (Amplitude/Mixpanel), and release communications."
+  },
+  {
+    "id": "job-43",
+    "title": "Associate Product Manager (APM)",
+    "company": "InnovateLabs",
+    "location": "Boston, MA",
+    "description": "Collaborate with engineering and design to gather customer feedback, prioritize backlog user stories in Jira, analyze product usage telemetry, and assist in launch readiness for SaaS web and mobile applications."
+  },
+  {
+    "id": "job-44",
+    "title": "Full-Stack TypeScript Engineer",
+    "company": "NextGen Software",
+    "location": "Seattle, WA (Remote)",
+    "description": "Build end-to-end web applications with Next.js, React, Node.js, Prisma, and PostgreSQL. Responsible for crafting responsive Tailwind CSS user interfaces, writing type-safe server actions, and maintaining comprehensive test coverage with Playwright and Jest."
+  },
+  {
+    "id": "job-45",
+    "title": "Embedded Firmware Engineer",
+    "company": "IoT Connected Devices",
+    "location": "San Diego, CA",
+    "description": "Develop bare-metal and FreeRTOS embedded C/C++ firmware for low-power connected IoT sensors. Experience with ARM Cortex-M microcontrollers, BLE/Wi-Fi wireless stacks, I2C/SPI bus protocols, and hardware debugging with oscilloscopes."
+  },
+  {
+    "id": "job-46",
+    "title": "Cybersecurity Incident Response Analyst",
+    "company": "CyberGuard SOC",
+    "location": "Remote (US)",
+    "description": "Monitor and investigate security events in a 24/7 Security Operations Center (SOC). Hands-on experience with SIEM platforms (Splunk/Sentinel), EDR tools (CrowdStrike), forensic artifact analysis, MITRE ATT&CK framework, and incident triage."
+  },
+  {
+    "id": "job-47",
+    "title": "Database Administrator (PostgreSQL DBA)",
+    "company": "DataScale Core",
+    "location": "Phoenix, AZ (Hybrid)",
+    "description": "Maintain mission-critical high-volume PostgreSQL databases. Expertise in query query plan optimization (EXPLAIN ANALYZE), connection pooling with PgBouncer, patroni-based high availability failover, wal-g backups, and major version upgrades."
+  },
+  {
+    "id": "job-48",
+    "title": "QA Automation Lead Engineer",
+    "company": "QualityCraft",
+    "location": "Remote",
+    "description": "Architect automated end-to-end testing frameworks using Cypress, Playwright, and TypeScript. Lead test automation across web, API, and mobile applications, integrating regression test suites into GitHub Actions CI pipelines."
+  },
+  {
+    "id": "job-49",
+    "title": "Engineering Manager - Platform Engineering",
+    "company": "Beacon Global",
+    "location": "New York, NY (Hybrid)",
+    "description": "Lead and grow a team of 8 senior platform and DevOps engineers. Responsible for team technical roadmap, sprint planning, engineering career development, stakeholder alignment, and driving system reliability and developer velocity."
+  },
+  {
+    "id": "job-50",
+    "title": "Developer Advocate / Relations Engineer",
+    "company": "DevEcho Tools",
+    "location": "Remote (Global)",
+    "description": "Inspire and empower developers worldwide. Create technical sample apps, tutorials, and documentation showcasing our developer APIs. Speak at tech conferences, host developer workshops, and act as the voice of external developers internally."
+  }
+]
