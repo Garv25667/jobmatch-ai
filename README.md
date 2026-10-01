@@ -1,172 +1,135 @@
-# JobMatch AI 🎯
+# JobMatch AI
 
-JobMatch AI is a full-stack career matching platform that pairs candidate resumes with job listings using vector embeddings and generative AI reasoning.
+Paste a resume, get the 5 best-matching jobs with a similarity score and a one-sentence explanation of why each one fits.
 
-Users paste a resume, project overview, or skill summary, and the application instantly returns the **top 5 best-matching jobs** with an exact match percentage and a tailored, one-sentence justification explaining why the candidate fits each position.
+Built with **Next.js, TypeScript, Node/Express, Pinecone, and the Gemini API**.
 
----
+![JobMatch AI demo](docs/demo.gif)
+<!-- Replace with a screenshot or short screen recording of the match flow -->
+![alt text](image.png)
 
-## How It Works
-
-The matching pipeline operates in three distinct phases:
-
-```
-[Candidate Resume]
-        │
-        ▼ (Phase 1: Embedding)
- [Gemini Embedding] ──▶ 768-dimensional vector
-        │
-        ▼ (Phase 2: Vector Search)
- [Pinecone Index]   ──▶ Cosine similarity query (Top 5 matches)
-        │
-        ▼ (Phase 3: LLM Explanation)
- [Gemini Flash LLM] ──▶ ONE prompt with resume & matched jobs (strict JSON)
-        │
-        ▼
-[Top 5 Matched Jobs with % Score and Custom One-Sentence Reasons]
-```
-
-1. **Embedding (`Phase 1`)**:
-   The candidate's resume text is converted into a 768-dimensional dense vector using Gemini's embedding model (`gemini-embedding-001`). The exact same model and dimension are used for indexing jobs.
-2. **Vector Search (`Phase 2`)**:
-   The embedding is queried against the Pinecone `jobmatch` index using cosine similarity metric to find the top 5 nearest neighbor job postings.
-3. **LLM Explanation (`Phase 3`)**:
-   A single call is made to Gemini Flash with the candidate's resume and the 5 matched job listings. Gemini responds with strict JSON containing a concise, 1-sentence explanation for each job explaining why the candidate's specific background aligns with the role.
-
----
-
-## Tech Stack
-
-- **Backend**: Node.js, Express, TypeScript, tsx, dotenv, cors
-- **Vector Database**: Pinecone (`jobmatch` index, 768 dimensions, cosine metric)
-- **Embeddings & LLM**: Google Gemini API (`gemini-embedding-001` and Gemini Flash)
-- **Frontend**: Next.js 16 (App Router), TypeScript, Tailwind CSS, Lucide React
-- **Architecture**: No SQL database, no auth, no Redis — clean vector search and serverless LLM design.
-
----
-
-## Project Structure
+## How it works
 
 ```
-jobmatch/
-├── backend/
-│   ├── src/
-│   │   ├── config/
-│   │   │   └── env.ts           # Centralized environment variable loader
-│   │   ├── data/
-│   │   │   └── jobs.json        # 50 realistic tech jobs across domains
-│   │   ├── routes/
-│   │   │   ├── jobs.ts          # GET /jobs route handler
-│   │   │   └── match.ts         # POST /match route handler
-│   │   ├── scripts/
-│   │   │   └── seed.ts          # Pinecone index seeding script
-│   │   ├── services/
-│   │   │   ├── gemini.ts        # Gemini embedding (768 dims) & reasoning service
-│   │   │   └── pinecone.ts      # Pinecone client & similarity search
-│   │   └── index.ts             # Express server entry point
-│   ├── .env.example
-│   ├── package.json
-│   └── tsconfig.json
-├── frontend/
-│   ├── src/
-│   │   ├── app/
-│   │   │   ├── jobs/
-│   │   │   │   └── page.tsx     # "Browse all jobs" catalog page
-│   │   │   ├── globals.css      # Dark mode styles & Tailwind setup
-│   │   │   ├── layout.tsx       # Root layout with Navbar & Footer
-│   │   │   └── page.tsx         # Main resume matcher page
-│   │   └── components/
-│   │       └── Navbar.tsx       # Navigation header
-│   ├── .env.example
-│   ├── package.json
-│   └── tsconfig.json
-├── .gitignore
-└── README.md
+[Resume text]
+     │
+     ▼  1. Embed
+[Gemini embedding model] ──▶ 768-dimension vector
+     │
+     ▼  2. Vector search
+[Pinecone index, cosine similarity] ──▶ top 5 nearest jobs
+     │
+     ▼  3. Explain
+[Gemini Flash] ──▶ one call, strict JSON, one-sentence reason per job
+     │
+     ▼
+[Ranked jobs with similarity % and reasons]
 ```
 
----
+1. **Embed.** The resume is converted into a 768-dimension vector with `gemini-embedding-001`. Job descriptions were embedded with the same model and dimension when the index was seeded, so the vectors live in the same space and can be compared.
+2. **Vector search.** The resume vector is queried against the Pinecone index using cosine similarity. Pinecone returns the 5 closest job vectors along with their stored metadata.
+3. **Explain.** The resume and the 5 matched jobs go to Gemini Flash in a single call. It returns JSON with a short reason for each match.
 
-## Environment Variables
+The similarity score shown in the UI is the cosine similarity from Pinecone expressed as a percentage.
 
-### Backend (`backend/.env`)
-Create or verify `backend/.env` with the following keys:
+## Tech stack
+
+| Layer | Tools |
+|---|---|
+| Frontend | Next.js (App Router), TypeScript, Tailwind CSS |
+| Backend | Node.js, Express, TypeScript, tsx |
+| Vector database | Pinecone (serverless, 768 dimensions, cosine) |
+| Embeddings and LLM | Google Gemini API |
+
+## Prerequisites
+
+- Node.js 20 or newer
+- A free [Pinecone](https://www.pinecone.io/) account and API key
+- A Gemini API key from [Google AI Studio](https://aistudio.google.com/)
+
+## Setup
+
+### 1. Clone and install
 
 ```bash
+git clone https://github.com/<your-username>/jobmatch-ai.git
+cd jobmatch-ai
+
+cd backend && npm install
+cd ../frontend && npm install
+```
+
+### 2. Create the Pinecone index
+
+In the Pinecone console, create a serverless index with:
+
+- **Name:** `jobmatch`
+- **Dimensions:** `768`
+- **Metric:** `cosine`
+- **Vector type:** Dense
+
+The dimension must match the embedding output exactly, or upserts will fail.
+
+### 3. Configure environment variables
+
+Create `backend/.env`:
+
+```
 PINECONE_API_KEY=your_pinecone_api_key
 PINECONE_INDEX=jobmatch
 GEMINI_API_KEY=your_gemini_api_key
 PORT=5000
 ```
 
-> **Note**: `.env` is excluded from git tracking via `.gitignore`. An example template is provided in `backend/.env.example`.
-
-### Frontend (`frontend/.env.local`)
 Create `frontend/.env.local`:
 
-```bash
+```
 NEXT_PUBLIC_API_URL=http://localhost:5000
 ```
 
----
+`.env` files are git-ignored. Use the `.env.example` files as templates and never commit real keys.
 
-## Getting Started
-
-### 1. Install Dependencies
-
-In the backend directory:
-```bash
-cd backend
-npm install
-```
-
-In the frontend directory:
-```bash
-cd frontend
-npm install
-```
-
-### 2. Seed the Pinecone Vector Database
-
-Embed all 50 job listings with 768-dimensional embeddings and upsert into the Pinecone `jobmatch` index:
+### 4. Seed the index
 
 ```bash
 cd backend
 npm run seed
 ```
 
-The script batches calls, includes rate-limit delays, and is completely safe to re-run.
+This embeds the 50 jobs in `backend/src/data/jobs.json` and upserts them into Pinecone. It batches requests with small delays and is safe to re-run. When it finishes, the index should show 50 records.
 
-### 3. Start the Development Servers
+### 5. Run the app
 
-Start the backend API server (runs on `http://localhost:5000`):
+In two terminals:
+
 ```bash
+# Terminal 1: API on http://localhost:5000
 cd backend
 npm run dev
 ```
 
-Start the frontend Next.js app (runs on `http://localhost:3000`):
 ```bash
+# Terminal 2: UI on http://localhost:3000
 cd frontend
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) in your browser to use the application.
+Open http://localhost:3000.
 
----
-
-## API Reference
+## API
 
 ### `POST /match`
-Accepts a candidate resume, embeds it, queries Pinecone for the top 5 jobs, and asks Gemini Flash for a one-sentence reason per job.
 
-**Request Body:**
+Embeds the resume, queries Pinecone, and returns the top 5 jobs with reasons.
+
+Request:
+
 ```json
-{
-  "resumeText": "Senior Frontend Engineer with 5+ years of experience specializing in React, Next.js, TypeScript, and modern CSS/Tailwind..."
-}
+{ "resumeText": "Senior Frontend Engineer with 6+ years of React, Next.js, TypeScript..." }
 ```
 
-**Response (`200 OK`):**
+Response:
+
 ```json
 [
   {
@@ -175,46 +138,52 @@ Accepts a candidate resume, embeds it, queries Pinecone for the top 5 jobs, and 
     "company": "Voxel Cloud",
     "location": "San Francisco, CA (Hybrid)",
     "score": 76,
-    "reason": "The candidate's 5+ years of expertise in React, Next.js, and TypeScript directly aligns with Voxel Cloud's requirement for architecting high-performance client applications and responsive design systems."
-  },
-  {
-    "id": "job-7",
-    "title": "Lead Frontend Architect",
-    "company": "NovaScale",
-    "location": "Seattle, WA",
-    "score": 76,
-    "reason": "The candidate's extensive background in architecting large-scale component systems and client performance profiling matches NovaScale's need for a technical lead focused on enterprise SaaS web applications."
+    "reason": "..."
   }
 ]
 ```
 
 ### `GET /jobs`
-Returns the catalog of tech positions from `jobs.json`. Supports optional search filter via `?q=<term>`.
 
-```bash
-curl http://localhost:5000/jobs
-```
+Returns the job catalog from `jobs.json`. Supports `?q=<term>` to filter.
 
 ### `GET /health`
-Returns the status of the backend API service.
 
-```bash
-curl http://localhost:5000/health
-# {"status":"ok","service":"jobmatch-backend"}
-```
-
----
+Returns `{"status":"ok","service":"jobmatch-backend"}`.
 
 ## Features
 
-1. **Resume Matcher**:
-   - Large monospace textarea with live character counter.
-   - Quick preset sample buttons for **Frontend Developer**, **ML / GenAI Engineer**, **DevOps / Cloud Engineer**, and **Backend Systems Engineer**.
-   - Color-coded match percentage progress bars (Emerald, Cyan, Indigo, Amber).
-   - Tailored one-sentence reasoning generated in real-time by Gemini Flash.
-   - Smooth skeleton loading and error states.
+- Resume input with character counter and sample resumes (frontend, ML, DevOps, backend)
+- Ranked job cards with a similarity bar and a Gemini-written reason
+- Loading and error states
+- Browse page (`/jobs`) with text search and category filters
 
-2. **Browse All Jobs**:
-   - Instant search across job titles, company names, locations, and technical skill descriptions.
-   - Category filter pills: All, Frontend, Backend, Data, ML & AI, DevOps / Cloud, Product.
-   - Direct link to test any resume against indexed jobs.
+## Project structure
+
+```
+backend/
+  src/
+    config/env.ts       environment loader
+    data/jobs.json      50 sample jobs
+    routes/             /match and /jobs handlers
+    scripts/seed.ts     embeds jobs and upserts to Pinecone
+    services/           Gemini and Pinecone clients
+    index.ts            Express entry point
+frontend/
+  src/app/              pages (matcher and browse)
+  src/components/       shared UI
+```
+
+## Limitations
+
+- The 50 jobs are synthetic sample data, not live listings.
+- Scores are embedding similarity, not a measure of candidate quality. Similar jobs often score close together.
+- The "reason" text is LLM-generated and can occasionally overstate a fit.
+- There is no authentication or rate limiting, and the free tiers of Gemini and Pinecone have usage caps.
+
+## Possible next steps
+
+- Ingest real job feeds and refresh embeddings on a schedule
+- Hybrid search (keyword plus vector) and metadata filters such as location
+- Resume file upload (PDF parsing)
+- Deployment with rate limiting
